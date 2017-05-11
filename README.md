@@ -1,0 +1,6 @@
+选项卡：
+
+*鼠标移动到内部元素时引起外部元素事件：
+1、使用mouseleaveh、mouseenter代替mouseout、mouseover；
+2、因为在鼠标移动到内部元素之上而触发了外层元素的onmouseout事件后，外层元素的onmouseover也会马上触发，所以我们只需要把外层元素的onmouseout事件需要执行的动作延迟很短的一段时间来运行，然后在onmouseover事件中再执行clearTimeout方法，这样就可以避免内部元素引起的事件干扰；
+3、先做一个判断是否是内部元素引起的事件，如果是就忽略，不是就触发；
